@@ -11,10 +11,6 @@
     cursor: pointer;
 }
 
-.dvMessages {
-    
-}
-
 .contentChat {
     display: flex;
     position: fixed;

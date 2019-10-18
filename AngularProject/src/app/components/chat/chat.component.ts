@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChatService } from '../../../chat.service';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-chat',
@@ -8,20 +8,24 @@ import { ChatService } from '../../../chat.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  message: string;
-  messages: string[] = [];
 
   constructor(private chatService: ChatService) {
 
   }
 
+  message: string;
+  messages: string[] = [];
+
   ngOnInit() {
+    this.chatService.getMessages().
+      subscribe((message: string) => {
+        let currentTime = moment().format('hh:mm:ss a');
+        let messageWithTimestamp = `${currentTime}: ${message}`;
+        this.messages.push(messageWithTimestamp);
+      });
+
     document.getElementById('contentChat').style.visibility = 'hidden';
     document.getElementById('contentChat').style.animation = '';
-
-    this.chatService.getMessages().subscribe((message: string) => {
-      this.messages.push(message);
-    })
   }
 
   showChat() {
@@ -38,7 +42,6 @@ export class ChatComponent implements OnInit {
 
   sendMessage() {
     this.chatService.sendMessage(this.message);
-    console.log(this.message)
     this.message = '';
   }
 
