@@ -32,12 +32,9 @@ export class ChatComponent implements OnInit {
     this.message = '';
   }
 
-  ngOnInit() {
-    this.chatService.getMessages().
-      subscribe((message: string) => {
-        this.messages.push(message);
-      });
+//verificar se não é o lifecycle do angular, jogar um componentdidmount para montar o get
 
+  ngOnInit() {
     document.getElementById('contentChat').style.visibility = 'hidden';
     document.getElementById('contentChat').style.animation = '';
   }
