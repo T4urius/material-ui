@@ -1,8 +1,9 @@
-<div *ngFor="let message of messages">
-    {{message}}
+<div>
+    <span *ngFor="let message of messages">{{message}}</span>
 </div>
 <div id="contentChat" class="contentChat">
-    <input matInput class="inputMessage" (keyup)="$event.keyCode == 13 && sendMessage()" [(ngModel)]="message" />
+    <input matInput class="inputMessage" (keyup)="$event.keyCode == 13 && sendMessage()" [(ngModel)]="message"
+        autocomplete="off" placeholder="Digite uma mensagem" />
     <button mat-raised-button class="btnSend" (click)="sendMessage()">Enviar</button>
 </div>
 <div id="btnChat" class="btnChat" (click)="showChat()">

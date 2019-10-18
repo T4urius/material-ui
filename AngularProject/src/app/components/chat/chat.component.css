@@ -37,6 +37,7 @@
     width: 90%;
     bottom: 30%;
     border-bottom: 1px solid;
+    font-size: small;
 }
 
 @keyframes openBox {
