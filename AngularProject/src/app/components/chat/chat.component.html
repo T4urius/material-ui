@@ -1,0 +1,12 @@
+<div class="dvMessages" *ngFor="let message of messages">
+    {{message}}
+</div>
+
+<div id="contentChat" class="contentChat">
+    <input matInput class="inputMessage" (keyup)="$event.keyCode == 13 && sendMessage()" [(ngModel)]="message" />
+    <button mat-raised-button class="btnSend" (click)="sendMessage()">Enviar</button>
+</div>
+
+<div id="btnChat" class="btnChat" (click)="showChat()">
+    <span>Chat Online</span>
+</div>
