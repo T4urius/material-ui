@@ -38,6 +38,7 @@ export class ChatComponent implements OnInit {
 
   sendMessage() {
     this.chatService.sendMessage(this.message);
+    console.log(this.message)
     this.message = '';
   }
 
