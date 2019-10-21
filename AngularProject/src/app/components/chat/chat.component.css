@@ -11,6 +11,12 @@
     cursor: pointer;
 }
 
+.contentConv {
+    height: 56%;
+    width: 100%;
+    font-size: x-small;
+}
+
 .contentChat {
     display: flex;
     position: fixed;
@@ -31,13 +37,18 @@
     bottom: 5%;
 }
 
+.datetime {
+    color: #8fbc8f;
+}
+
 .inputMessage {
     position: absolute;
     display: flex;
     width: 90%;
     bottom: 30%;
     border-bottom: 1px solid;
-    font-size: small;
+    font-size: x-small;
+    word-break: break-all;
 }
 
 @keyframes openBox {

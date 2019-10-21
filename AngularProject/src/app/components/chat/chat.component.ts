@@ -14,6 +14,7 @@ export class ChatComponent implements OnInit {
 
   message: string;
   messages: string[] = [];
+  datetime = new Date();
 
   showChat() {
     let contentChat = document.getElementById('contentChat');
@@ -29,6 +30,7 @@ export class ChatComponent implements OnInit {
 
   sendMessage() {
     this.chatService.sendMessage(this.message);
+    this.messages.push(this.message);
     this.message = '';
   }
 
@@ -38,5 +40,4 @@ export class ChatComponent implements OnInit {
     document.getElementById('contentChat').style.visibility = 'hidden';
     document.getElementById('contentChat').style.animation = '';
   }
-
 }

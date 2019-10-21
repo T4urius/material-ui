@@ -1,7 +1,7 @@
-<div>
-    <span *ngFor="let message of messages">{{message}}</span>
-</div>
 <div id="contentChat" class="contentChat">
+    <div class="contentConv">
+        <span *ngFor="let message of messages">{{message}} <span class="datetime"> - {{datetime | date : 'h:mm a' }}</span><br /><br /></span>
+    </div>
     <input matInput class="inputMessage" (keyup)="$event.keyCode == 13 && sendMessage()" [(ngModel)]="message"
         autocomplete="off" placeholder="Digite uma mensagem" />
     <button mat-raised-button class="btnSend" (click)="sendMessage()">Enviar</button>
